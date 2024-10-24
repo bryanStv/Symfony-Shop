@@ -134,6 +134,6 @@
 
 
     <!-- Team Start -->
-    {{ include ('partials/_team.html.twig')}}
+    {{ render(controller('App\\Controller\\PageController::teamTemplate')) }}
     <!-- Team End -->
 {% endblock %}

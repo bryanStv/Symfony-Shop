@@ -11,19 +11,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class PageController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(ManagerRegistry $doctrine): Response
+    public function index(): Response
     {
-        $repository = $doctrine->getRepository(Team::class);
-        $team = $repository->findAll();
-        return $this->render('page/index.html.twig', compact('team'));
+        return $this->render('page/index.html.twig');
     }
 
     #[Route('/about', name: 'about')]
-    public function about(ManagerRegistry $doctrine): Response
+    public function about(): Response
     {
-        $repository = $doctrine->getRepository(Team::class);
-        $team = $repository->findAll();
-        return $this->render('page/about.html.twig', compact('team'));
+        return $this->render('page/about.html.twig');
     }
 
     #[Route('/service', name: 'service')]
@@ -33,19 +29,15 @@ class PageController extends AbstractController
     }
 
     #[Route('/price', name: 'price')]
-    public function price(ManagerRegistry $doctrine): Response
+    public function price(): Response
     {
-        $repository = $doctrine->getRepository(Team::class);
-        $team = $repository->findAll();
-        return $this->render('page/price.html.twig', compact('team'));
+        return $this->render('page/price.html.twig');
     }
 
     #[Route('/team', name: 'team')]
-    public function team(ManagerRegistry $doctrine): Response
+    public function team(): Response
     {
-        $repository = $doctrine->getRepository(Team::class);
-        $team = $repository->findAll();
-        return $this->render('page/team.html.twig', compact('team'));
+        return $this->render('page/team.html.twig');
     }
 
     #[Route('/testimonial', name: 'testimonial')]
@@ -58,6 +50,13 @@ class PageController extends AbstractController
     public function contact(): Response
     {
         return $this->render('page/contact.html.twig', []);
+    }
+
+    public function teamTemplate(ManagerRegistry $doctrine): Response
+    {
+        $repository = $doctrine->getRepository(Team::class);
+        $team = $repository->findAll();
+        return $this->render('partials/_team.html.twig',compact('team'));
     }
 
 }
