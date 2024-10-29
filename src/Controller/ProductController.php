@@ -21,7 +21,7 @@ class ProductController extends AbstractController
     public function productTemplate(ManagerRegistry $doctrine): Response
     {
         $repository = $doctrine->getRepository(Product::class);
-        $product = $repository->findAll();
-        return $this->render('partials/_product.html.twig',compact('product'));
+        $products = $repository->findAll();
+        return $this->render('partials/_product.html.twig',compact('products'));
     }
 }
