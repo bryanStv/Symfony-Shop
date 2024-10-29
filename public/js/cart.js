@@ -1,7 +1,7 @@
 //Immediately-Invoked Function Expression (IIFE)
 (function(){
-    const infoProduct = $("#infoProduct");
-    $( "a.open-info-product" ).click(function(event) {
+    const infoProduct = $("#cart-modal");
+    $( "a.open-cart" ).click(function(event) {
         event.preventDefault();
         const id = $( this ).attr('data-id');
         const href = `/api/show/${id}`;
