@@ -7,12 +7,12 @@
         const href = `/api/show/${id}`;
         $.get( href, function(data) {
             $( infoProduct ).find( "#productName" ).text(data.name);
-            $( infoProduct ).find( "#productPrice" ).text(data.price);
+            $( infoProduct ).find( "#productPrice" ).text(data.price+"€");
             $( infoProduct ).find( "#productImage" ).attr("src", "/img/" + data.photo);
             infoProduct.modal('show');
         })
     });
-    $(".closeInfoProduct").click(function (e) {
+    $(".closeCart").click(function (e) {
         infoProduct.modal('hide');
     });
 })();
